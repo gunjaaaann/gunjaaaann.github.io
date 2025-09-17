@@ -1,9 +1,9 @@
   const texts = [
-    "Paint",
-    "Sketch",
-    "Illustrate",
-    "Screenprint",
-    "xxxxx"
+    "Painting",
+    "Sketching",
+    "Illustrations",
+    "Screenprinting",
+    "Printmaking"
   ];
 
   const typingSpeed = 100; // ms per character
