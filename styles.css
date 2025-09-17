@@ -1,0 +1,102 @@
+body {
+      margin: 0;
+      background: #fff;
+      font-family: "noka", sans-serif;
+      font-style: normal;
+      height: 100vh;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      flex-direction: column;
+    }
+
+    .hand {
+      position: relative;
+      margin-top: 6em;
+      margin-left: 45em;
+      width: 600px;
+      height: 300px;
+    }
+
+    .card {
+      --rotate: 0deg;
+      --x: 0px;
+
+      width: 140px;
+      height: 200px;
+      background: #3c51ee;
+      font-weight: 400;
+      color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: rotate(var(--rotate)) translateX(var(--x));
+      transform-origin: bottom center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      justify-content: center; /* horizontal center */
+      align-items: center;     /* vertical center */
+      text-align: center;      /* multiline centered text */
+      padding: 20px;           /* keep your padding */
+      box-sizing: border-box;  /* include padding in size */
+    }
+
+    .card:hover {
+      transform: rotate(var(--rotate)) translateX(var(--x)) translateY(-90px);
+    }
+
+    /* Assign position via CSS variables */
+    .card:nth-child(1) {
+      --rotate: -25deg;
+      --x: -170px;
+    }
+
+    .card:nth-child(2) {
+      --rotate: -12deg;
+      --x: -85px;
+    }
+
+    .card:nth-child(3) {
+      --rotate: 0deg;
+      --x: 0px;
+    }
+
+    .card:nth-child(4) {
+      --rotate: 12deg;
+      --x: 85px;
+    }
+
+    .card:nth-child(5) {
+      --rotate: 25deg;
+      --x: 170px;
+    }
+
+    .card-content {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 2em;
+      color: #3c51ee;
+      margin: 0;
+      padding-left: 2%;
+    }
+
+    .intro {
+      padding-top: 2em;
+      padding-left: 2%;  
+    }
+    
