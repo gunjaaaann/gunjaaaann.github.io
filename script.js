@@ -46,4 +46,5 @@
     setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
   }
 
+
   type(); // start the effect
