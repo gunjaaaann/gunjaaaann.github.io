@@ -12,8 +12,8 @@ body {
 
     .hand {
       position: relative;
-      margin-top: 6em;
-      margin-left: 45em;
+      margin-top: 4em;
+      margin-left: 43%;
       width: 600px;
       height: 300px;
     }
@@ -44,35 +44,52 @@ body {
       box-sizing: border-box;  /* include padding in size */
     }
 
+    .fun {
+      background-color: #63c981;
+      color: black;
+    }
+
     .card:hover {
       transform: rotate(var(--rotate)) translateX(var(--x)) translateY(-90px);
     }
 
     /* Assign position via CSS variables */
     .card:nth-child(1) {
-      --rotate: -25deg;
-      --x: -170px;
+      --rotate: -30deg;
+      --x: -270px;
     }
 
     .card:nth-child(2) {
-      --rotate: -12deg;
-      --x: -85px;
+      --rotate: -20deg;
+      --x: -180px;
     }
 
     .card:nth-child(3) {
+      --rotate: -10deg;
+      --x: -90px;
+    }
+
+    .card:nth-child(4) {
       --rotate: 0deg;
       --x: 0px;
     }
 
-    .card:nth-child(4) {
-      --rotate: 12deg;
-      --x: 85px;
+    .card:nth-child(5) {
+      --rotate: 10deg;
+      --x: 90px;
     }
 
-    .card:nth-child(5) {
-      --rotate: 25deg;
-      --x: 170px;
+    .card:nth-child(6) {
+      --rotate: 20deg;
+      --x: 180px;
     }
+
+    .card:nth-child(7) {
+      --rotate: 30deg;
+      --x: 270px;
+    }
+
+
 
     .card-content {
       height: 100%;
