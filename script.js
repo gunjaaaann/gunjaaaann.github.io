@@ -46,5 +46,21 @@
     setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
   }
 
-
   type(); // start the effect
+
+
+
+
+  document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const url = card.dataset.href;
+
+    // Add expand effect
+    card.classList.add("expand");
+
+    // Delay navigation until after animation
+    setTimeout(() => {
+      window.location.href = url;
+    }, 700); // match your CSS transition time
+  });
+});
