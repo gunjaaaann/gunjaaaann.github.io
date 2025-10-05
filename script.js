@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
   const texts = [
     "Painting",
     "Sketching",
@@ -6,9 +7,9 @@
     "Printmaking"
   ];
 
-  const typingSpeed = 100; // ms per character
-  const erasingSpeed = 50; // ms per character erased
-  const delayBetweenTexts = 1500; // pause before erase
+  const typingSpeed = 100; 
+  const erasingSpeed = 50; 
+  const delayBetweenTexts = 1500; 
 
   const rotatingCard = document.getElementById('rotating-card');
 
@@ -20,12 +21,9 @@
     const currentText = texts[textIndex];
 
     if (!isDeleting) {
-      // typing
       rotatingCard.textContent = currentText.substring(0, charIndex + 1);
       charIndex++;
-
       if (charIndex === currentText.length) {
-        // done typing, pause then start deleting
         setTimeout(() => {
           isDeleting = true;
           type();
@@ -33,10 +31,8 @@
         return;
       }
     } else {
-      // deleting
       rotatingCard.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-
       if (charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % texts.length;
@@ -46,21 +42,16 @@
     setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
   }
 
-  type(); // start the effect
+  type();
 
-
-
-
+  // ✅ Card click handling
   document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("click", () => {
-    const url = card.dataset.href;
-
-    // Add expand effect
-    card.classList.add("expand");
-
-    // Delay navigation until after animation
-    setTimeout(() => {
-      window.location.href = url;
-    }, 700); // match your CSS transition time
+    card.addEventListener("click", () => {
+      const url = card.dataset.href;
+      card.classList.add("expand");
+      setTimeout(() => {
+        window.location.href = url;
+      }, 700);
+    });
   });
 });
