@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoCar Project</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/mme6bmy.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fdfaf7;
+      color: #111;
+      margin: 0;
+    }
+
+    .container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: flex-start; /* ensures sticky works */
+    }
+
+    .sidebar {
+    background-color: #e75e00;
+    color: white;
+    width: 30%;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 0px); /* ensures full viewport height */
+    overflow-y: auto;
+    flex-shrink: 0; /* prevents flex shrinking */
+    }
+
+    .sidebar h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .sidebar p { margin-bottom: 1rem; line-height: 1.5; }
+    .nav-buttons { margin-top: auto; display: flex; justify-content: space-between; }
+    .nav-buttons a { color: white; text-decoration: none; font-weight: bold; }
+
+    /* Main content */
+    .main-content { width: 70%; padding: 3rem; overflow-y: auto; }
+    .hero img { max-width: 91%; margin-bottom: 1.5rem; border-radius: 12px; }
+    .hero h2 { font-size: 2rem; margin: 1rem 0; }
+    .hero em { display: block; margin-bottom: 1rem; font-size: 1.2rem; color: #555; }
+
+    .section { margin-top: 3rem; }
+    .section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #e75e00; }
+    .section p, .section ul, .section li { margin-bottom: 1rem; line-height: 1.6; }
+    .section ul { list-style: disc inside; }
+
+    .section-nav { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .section-nav a { color: #111; text-decoration: underline; font-weight: 500; }
+
+    /* Minor formatting */
+    .feedback-grid, .journey-map { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; border-radius: 8px; background-color: #fff; }
+
+    /* Image Gallery */
+    .image-gallery {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .thumbnail {
+      width: 80px;
+      height: auto;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    .thumbnail:hover { opacity: 1; }
+    .thumbnail.selected { border-bottom: 3px solid #e75e00; opacity: 1; }
+
+    .main-image img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .caption { margin-top: 1rem; font-size: 0.95rem; color: #444; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1>CoCar</h1>
+      <p><strong>Timeline</strong><br>2025 — 14 weeks</p>
+      <p>CoCar is a shared travel service for students that reduces commuting time and costs, fosters social connection, and lowers environmental impact.</p>
+      <p><strong>Roles</strong><br>Service Designer<br>User Researcher<br>Project Manager</p>
+      <p><strong>Tools</strong><br>Figma<br>Voiceflow</p>
+      <p><strong>Project Remarks</strong><br>Grade: 82 (First Class Honours)</p>
+      <div class="nav-buttons">
+        <a href="#">← Previous</a>
+        <a href="#">Next →</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <img src="../images/cocar-hero.svg" alt="CoCar Mockup">
+        <h2>CoCar</h2>
+        <p><em>What if your daily commute could save you time, money, and the planet—while helping you meet new friends?</em></p>
+        <ul>
+          <li>Reduces commuting time and costs.</li>
+          <li>Encourages social connection and sustainability.</li>
+          <li>Offers accessible solutions for all students, including those with disabilities.</li>
+        </ul>
+      </section>
+
+      <!-- Section Navigation -->
+      <nav class="section-nav">
+        <a href="#accessibility">Accessibility</a>
+        <a href="#methods">Methods</a>
+        <a href="#research">Research</a>
+        <a href="#ideation">Ideation</a>
+        <a href="#storyboards">Storyboards</a>
+        <a href="#walkthrough">Walkthrough</a>
+        <a href="#journey-maps">Journey Maps</a>
+        <a href="#findings">Findings</a>
+        <a href="#policies">Policies</a>
+        <a href="#what-next">What Next?</a>
+        <a href="#reflection">Reflection</a>
+
+      </nav>
+
+      <!-- Accessibility -->
+      <section id="accessibility" class="section">
+        <h3>Accessibility</h3>
+        <p>CoCar is committed to inclusivity, following Australian accessibility guidelines (NDIS, ADN, City of Melbourne). We provide:</p>
+        <ul>
+          <li>Fully accessible app (responsive, screen reader compatible, keyboard-navigable)</li>
+          <li>Call and chatbot support</li>
+          <li>Accessible vehicles through NDIS partnership</li>
+          <li>Dedicated drivers for mobility-impaired students</li>
+          <li>Free disabled parking spots for CoCar drivers</li>
+          <li>Low-sensory, noise-free ride options</li>
+        </ul>
+        <p>Personas considered include students with low vision, blindness, cerebral palsy, and Deaf students.</p>
+      </section>
+
+      <!-- Methods -->
+      <section id="methods" class="section">
+        <h3>Methods</h3>
+        <p>We followed a user-centred, iterative design process, focusing on empathy, research, prototyping, and co-design with students. Goals included:</p>
+        <ul>
+          <li>Enhancing campus life and social connections</li>
+          <li>Encouraging sustainable transport</li>
+          <li>Reducing financial burdens</li>
+          <li>Promoting accessibility</li>
+        </ul>
+      </section>
+
+
+      <!-- Research & Problem Formulation -->
+      <section id="research" class="section">
+        <h3>Research & Problem Formulation</h3>
+        <p>Insights were drawn from background research, personas, and secondary sources. Key “How Might We” questions guided our design to solve issues like accessibility, cost, social isolation, and efficiency.</p>
+      </section>
+
+      <!-- Idea Generation -->
+      <section id="ideation" class="section">
+        <h3>Idea Generation & Sketching</h3>
+        <p>Using the 10+10 sketching method, we generated a wide range of ideas, narrowing down to 10 that addressed accessibility and user needs. Feedback focused on incentives, safety, and practicality.</p>
+      </section>
+
+      <!-- Gallery 1 -->
+      <section class="image-gallery">
+        <div class="thumbnails">
+            <img src="../images/Problems.png" alt="Thumbnail 1" class="thumbnail selected" onclick="selectImage('displayed-image-1', 0)" />
+            <img src="../images/Idea-generation.png" alt="Thumbnail 2" class="thumbnail" onclick="selectImage('displayed-image-1', 1)" />
+        </div>
+        <div class="main-image">
+            <img id="displayed-image-1" src="../images/Problems.png" alt="Main View 1" />
+        </div>
+        <p class="caption">
+            The initial rich picture, captioning the main stakeholders: consumers, retail industry (consumer industry), charity workers, people in need, and circular economy services.
+        </p>
+        </section>
+
+      <!-- Storyboards -->
+      <section id="storyboards" class="section">
+        <h3>Storyboards</h3>
+        <p>Low and high-fidelity storyboards illustrated passenger and driver experiences, highlighting pain points and solutions. Feedback guided improvements.</p>
+      </section>
+
+      <!-- Gallery 2 -->
+      <section class="image-gallery">
+        <div class="thumbnails">
+            <img src="../images/storyboard-1.png" alt="Thumbnail 1" class="thumbnail selected" onclick="selectImage('displayed-image-2', 0)" />
+            <img src="../images/storyboard-2.png" alt="Thumbnail 2" class="thumbnail" onclick="selectImage('displayed-image-2', 1)" />
+        </div>
+        <div class="main-image">
+            <img id="displayed-image-2" src="../images/storyboard-1.png" alt="Main View 2" />
+        </div>
+        <p class="caption">
+            Storyboards illustrating passenger and driver experiences, highlighting pain points and solutions.
+        </p>
+        </section>
+
+      <!-- Desktop Walkthrough -->
+      <section id="walkthrough" class="section">
+        <h3>Desktop Walkthrough</h3>
+        <p>Internal and external walkthroughs identified usability issues, informing adjustments to accessibility, safety, and communication.</p>
+        <div class="feedback-grid">
+          <p><strong>Key Feedback & Priorities:</strong></p>
+          <ul>
+            <li>Partner with NDIS for accessible vehicles and dedicated drivers</li>
+            <li>Verify drivers’ licenses & demerit points via VicRoads</li>
+            <li>Provide live driver location visibility</li>
+            <li>Advocate for more parking spots through universities</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Gallery 3 -->
+    <section class="image-gallery">
+    <div class="thumbnails">
+        <img src="../images/walkthrough1.png" alt="Thumbnail 1" class="thumbnail selected" onclick="selectImage('displayed-image-3', 0)" />
+        <img src="../images/walkthrough2.png" alt="Thumbnail 2" class="thumbnail" onclick="selectImage('displayed-image-3', 1)" />
+    </div>
+    <div class="main-image">
+        <img id="displayed-image-3" src="../images/walkthrough1.png" alt="Main View 3" />
+    </div>
+    <p class="caption">
+        Storyboards illustrating passenger and driver experiences, highlighting pain points and solutions.
+    </p>
+    </section>
+
+
+      <!-- Journey Maps -->
+      <section id="journey-maps" class="section">
+        <h3>Journey Maps</h3>
+        <p>Passenger and driver journey maps visualized touchpoints, communication channels, and accessibility considerations, incorporating iterative feedback and AI-assisted review.</p>
+
+      </section>
+
+      <!-- Gallery 4 -->
+      <section class="image-gallery">
+        <div class="thumbnails">
+            <img src="../images/journey-map1.png" alt="Thumbnail 1" class="thumbnail selected" onclick="selectImage('displayed-image-4', 0)" />
+            <img src="../images/journey-map2.png" alt="Thumbnail 2" class="thumbnail" onclick="selectImage('displayed-image-4', 1)" />
+        </div>
+        <div class="main-image">
+            <img id="displayed-image-3" src="../images/journey-map1.png" alt="Main View 1" />
+        </div>
+        <p class="caption">
+            The initial rich picture, captioning the main stakeholders: consumers, retail industry (consumer industry), charity workers, people in need, and circular economy services.
+        </p>
+        </section>
+
+      <!-- Findings -->
+      <section id="findings" class="section">
+        <h3>Findings</h3>
+        <p>Key insights included:</p>
+        <ul>
+          <li>Drivers require incentives: financial, parking access, and social recognition</li>
+          <li>Students benefit from community forums and social matching</li>
+          <li>Safety depends on verified drivers and visible profiles</li>
+          <li>Syncing with university timetables improves ease-of-use</li>
+          <li>Low fares and environmental/social benefits encourage adoption over Uber</li>
+        </ul>
+      </section>
+
+      <!-- Policies & Safety -->
+      <section id="policies" class="section">
+        <h3>Policies & Safety</h3>
+        <ul>
+          <li>Punctuality and communication expectations</li>
+          <li>Vehicle cleanliness and hygiene</li>
+          <li>Accessibility-sensitive environment (e.g., music, sensory considerations)</li>
+          <li>Ride reimbursement system (auto-debit like Uber)</li>
+        </ul>
+      </section>
+
+      <!-- What Next -->
+        <section id="what-next" class="section">
+        <h3>What Next?</h3>
+        <ul>
+            <li>Improve AI chat clarity and discoverability.</li>
+            <li>Test with a larger student pool for scalability.</li>
+            <li>Explore integration with university transport systems for enhanced adoption.</li>
+        </ul>
+        </section>
+
+        <!-- Reflection -->
+        <section id="reflection" class="section">
+        <h3>Reflection</h3>
+        <p>
+            Working on CoCar highlighted the impact of iterative UX design in creating real-world solutions. 
+            The project deepened my skills in user research, prototyping, and service design, resulting in a product 
+            that combines usability, social value, and sustainability.
+        </p>
+        </section>
+
+
+      
+    </main>
+  </div>
+
+  <script>
+    function selectImage(galleryId, index) {
+      const displayedImage = document.getElementById(galleryId);
+      const gallery = displayedImage.closest('.image-gallery');
+      const thumbnails = gallery.querySelectorAll('.thumbnail');
+
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.remove('selected');
+        if (i === index) {
+          thumb.classList.add('selected');
+          displayedImage.src = thumb.src;
+          displayedImage.alt = thumb.alt;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
