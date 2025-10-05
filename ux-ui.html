@@ -4,9 +4,40 @@
   <meta charset="UTF-8">
   <title>Projects</title>
   <link rel="stylesheet" href="https://use.typekit.net/mme6bmy.css">
-  <link rel="stylesheet" href="../styles.css">   
+  <link rel="stylesheet" href="../styles.css">
 
+  <style>
+    /* Smooth background transition */
+    body {
+      background-color: #fdfaf7; /* default */
+      transition: background-color 0.35s ease;
+      margin: 0;
+    }
 
+    .projects { padding: 2rem; }
+
+    /* keep your table styles (add/override as needed) */
+    table { width: 100%; border-collapse: collapse; }
+    td, th { padding: 0.6rem; vertical-align: middle; }
+
+    .preview {
+      width: 160px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+      display: inline-block;
+    }
+    .preview:focus {
+      outline: 3px solid rgba(231,94,0,0.25);
+      outline-offset: 4px;
+    }
+    .preview:hover { transform: translateY(-4px); }
+
+    /* small helper for mobile: ensure hover-style doesn't cause layout jump */
+    @media (hover: none) {
+      .preview:hover { transform: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,68 +54,103 @@
     </thead>
 
     <tbody>
-      <tr>
+      <tr data-link="ux-ui/cocar.html">
         <td>June 2025</td>
+        <td><div class="project-hover">CoCar</div></td>
         <td>
-          <div class="project-hover">
-            CoCar
-          </div>
+          <!-- note data-bg contains the color to apply -->
+          <img src="images/cocar-hero.svg"
+               alt="CoCar preview"
+               class="preview cocar"
+               data-bg="#ffe5cc"
+               tabindex="0">
         </td>
-        <td>
-          <img src="keiner-thumb.png" alt="Keiner Type preview" class="preview">
-        </td>
-        <td>
-          Designed the UX/UI for CoCar, a university-focused car-sharing app, including an AI chatbot to streamline bookings and enhance user interactions.
-        </td>
-        <td>
-          <span class="tag">Service Design</span>
-          <span class="tag">UI</span>
-          <span class="tag">UX</span>
-        </td>
+        <td>Designed the UX/UI for CoCar, a university-focused car-sharing app, including an AI chatbot to streamline bookings and enhance user interactions.</td>
+        <td><span class="tag">Service Design</span> <span class="tag">UI</span> <span class="tag">UX</span></td>
       </tr>
 
       <tr>
         <td>June 2024</td>
+        <td><div class="project-hover">McCorry Collections</div></td>
         <td>
-          <div class="project-hover">
-            McCorry Collections
-          </div>
+          <img src="images/mccorry-hero.svg"
+               alt="McCorry Collections preview"
+               class="preview mccorry"
+               data-bg="#e6f2ff"
+               tabindex="0">
         </td>
-        <td>
-          <img src="drop-thumb.png" alt="Drop it Off preview" class="preview">
-        </td>
-        <td>
-          Redesigned the website to create a consistent, accessible, and visually cohesive experience that aligns with the brand’s values.
-        </td>
-        <td>
-          <span class="tag">UX</span>
-          <span class="tag">UI</span>
-          <span class="tag">Prototyping</span>
-        </td>
+        <td>Redesigned the website to create a consistent, accessible, and visually cohesive experience that aligns with the brand’s values.</td>
+        <td><span class="tag">UX</span> <span class="tag">UI</span> <span class="tag">Prototyping</span></td>
       </tr>
 
       <tr>
         <td>June 2023</td>
+        <td><div class="project-hover">Smart home app design</div></td>
         <td>
-          <div class="project-hover">
-            Smart home app design
-          </div>
+          <img src="images/smart-home-hero.svg"
+               alt="Smart home app preview"
+               class="preview smarthome"
+               data-bg="#e8ffe8"
+               tabindex="0">
         </td>
-        <td>
-          <img src="oak-thumb.png" alt="OAK milk preview" class="preview">
-        </td>
-        <td>
-          Designed the website to create a consistent, accessible, and visually cohesive experience that aligns with the brand’s values.
-        </td>
-        <td>
-          <span class="tag">UI</span>
-          <span class="tag">Prototyping</span>
-        </td>
+        <td>Designed the website to create a consistent, accessible, and visually cohesive experience that aligns with the brand’s values.</td>
+        <td><span class="tag">UI</span> <span class="tag">Prototyping</span></td>
       </tr>
-
     </tbody>
   </table>
 </div>
+
+<script>
+  // JS approach: read data-bg from each preview and set body background on hover/focus.
+  (function () {
+    const previews = document.querySelectorAll('.preview');
+    const DEFAULT_BG = getComputedStyle(document.body).backgroundColor || '#fdfaf7';
+
+    previews.forEach(preview => {
+      const color = preview.dataset.bg;
+
+      const setBg = (e) => {
+        // touch events may trigger mouse events; prevent double toggles by checking pointerType if needed.
+        document.body.style.backgroundColor = color || DEFAULT_BG;
+      };
+
+      const resetBg = () => {
+        document.body.style.backgroundColor = DEFAULT_BG;
+      };
+
+      // Mouse
+      preview.addEventListener('mouseenter', setBg);
+      preview.addEventListener('mouseleave', resetBg);
+
+      // Keyboard accessibility
+      preview.addEventListener('focus', setBg);
+      preview.addEventListener('blur', resetBg);
+
+      // Touch (mobile) — set on touchstart, reset after a short delay on touchend
+      preview.addEventListener('touchstart', (ev) => {
+        setBg();
+        // optional: stop event bubbling if you want to prevent mouse events immediately after
+        // ev.stopPropagation();
+      }, {passive: true});
+
+      preview.addEventListener('touchend', () => {
+        // short delay so user sees change
+        setTimeout(resetBg, 300);
+      });
+    });
+  })();
+
+  // Make table rows clickable using their data-link
+  document.querySelectorAll('tr[data-link]').forEach(row => {
+    row.style.cursor = 'pointer'; // show clickable cursor
+    row.addEventListener('click', () => {
+      const link = row.getAttribute('data-link');
+      if (link) {
+        window.location.href = link;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
