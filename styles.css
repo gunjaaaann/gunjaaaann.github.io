@@ -1,119 +1,222 @@
 body {
-      margin: 0;
-      background: #fff;
-      font-family: "noka", sans-serif;
-      font-style: normal;
-      height: 100vh;
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      flex-direction: column;
-    }
+  margin: 0;
+  background: #ffffff;
+  font-family: "canada-type-gibson", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+}
 
-    .hand {
-      position: relative;
-      margin-top: 4em;
-      margin-left: 43%;
-      width: 600px;
-      height: 300px;
-    }
+.hand {
+  position: relative;
+  margin-left: 43%;
+  width: 600px;
+  height: 300px;
+}
 
-    .card {
-      --rotate: 0deg;
-      --x: 0px;
+.card {
+  --rotate: 0deg;
+  --x: 0px;
 
-      width: 140px;
-      height: 200px;
-      background: #3c51ee;
-      font-weight: 400;
-      color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: rotate(var(--rotate)) translateX(var(--x));
-      transform-origin: bottom center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      justify-content: center; /* horizontal center */
-      align-items: center;     /* vertical center */
-      text-align: center;      /* multiline centered text */
-      padding: 20px;           /* keep your padding */
-      box-sizing: border-box;  /* include padding in size */
-    }
+  width: 140px;
+  height: 200px;
+  background: #e75e00;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: rotate(var(--rotate)) translateX(var(--x));
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  text-align: center;      /* multiline centered text */
+  padding: 20px;           /* keep your padding */
+  box-sizing: border-box;  /* include padding in size */
+}
 
-    .fun {
-      background-color: #63c981;
-      color: black;
-    }
+.fun {
+  background-color: #fcd1fc;
+  color: black;
+}
 
-    .card:hover {
-      transform: rotate(var(--rotate)) translateX(var(--x)) translateY(-90px);
-    }
+.card:hover {
+  transform: rotate(var(--rotate)) translateX(var(--x)) translateY(-90px);
+}
 
-    /* Assign position via CSS variables */
-    .card:nth-child(1) {
-      --rotate: -30deg;
-      --x: -270px;
-    }
+/* Assign position via CSS variables */
+.card:nth-child(1) {
+  --rotate: -30deg;
+  --x: -270px;
+}
 
-    .card:nth-child(2) {
-      --rotate: -20deg;
-      --x: -180px;
-    }
+.card:nth-child(2) {
+  --rotate: -20deg;
+  --x: -180px;
+}
 
-    .card:nth-child(3) {
-      --rotate: -10deg;
-      --x: -90px;
-    }
+.card:nth-child(3) {
+  --rotate: -10deg;
+  --x: -90px;
+}
 
-    .card:nth-child(4) {
-      --rotate: 0deg;
-      --x: 0px;
-    }
+.card:nth-child(4) {
+  --rotate: 0deg;
+  --x: 0px;
+}
 
-    .card:nth-child(5) {
-      --rotate: 10deg;
-      --x: 90px;
-    }
+.card:nth-child(5) {
+  --rotate: 10deg;
+  --x: 90px;
+}
 
-    .card:nth-child(6) {
-      --rotate: 20deg;
-      --x: 180px;
-    }
+.card:nth-child(6) {
+  --rotate: 20deg;
+  --x: 180px;
+}
 
-    .card:nth-child(7) {
-      --rotate: 30deg;
-      --x: 270px;
-    }
-
+.card:nth-child(7) {
+  --rotate: 30deg;
+  --x: 270px;
+}
 
 
-    .card-content {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      font-size: 1.2em;
-      font-weight: bold;
-    }
 
-    .navbar {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 2em;
-      color: #3c51ee;
-      margin: 0;
-      padding-left: 2%;
-    }
+.card-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
-    .intro {
-      padding-top: 2em;
-      padding-left: 2%;  
-    }
-    
+/* When a card is clicked */
+.card.expand {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg) !important;
+  background: white;
+  border-radius: 0;
+  z-index: 9999;
+  transition: all 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2em;
+  color: #3c51ee;
+  margin: 0;
+  padding-left: 2%;
+  padding-top: 1%;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.intro {
+  padding: 2%;  
+}
+
+p {
+  font-size: 1.3em;
+  margin: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 5em;
+}
+
+/*creative coding styling*/
+.iframe-container {
+  width: 50vw;
+  height: 40vh; /* adjust height per iframe */
+  margin: 2em;
+  border: solid 1px
+}
+
+.creative-coding {
+  display: flex;
+  margin-top: 8em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}    
+
+
+
+/*ux ui page styles*/
+.projects {
+  padding: 2em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 1em 0.5em;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+
+tbody td {
+  padding: 1.2em 0.5em;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+td img {
+  margin-top: 0.5em;
+  max-width: 180px;
+  border-radius: 6px;
+  display: block;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 0.2em 0.6em;
+  margin: 0.2em;
+  font-size: 0.85em;
+  border-radius: 3px;
+  background: transparent;
+}
+
+
+tbody td img.preview {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+tbody tr:hover td img.preview {
+  opacity: 1;
+}
+
+.projects td {
+  margin-bottom: 10em;
+}
